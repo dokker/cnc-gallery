@@ -3,7 +3,8 @@ namespace cncGLY;
 
 class Controller {
 	public function __construct() {
-		$this->plugin_url = plugin_dir_path(dirname(__FILE__));
+		$this->plugin_path = plugin_dir_path(dirname(__FILE__));
+		$this->plugin_url = plugin_dir_url(dirname(__FILE__));
 
 		// Register ACF fields
 		$this->acf = new ACF();
@@ -17,7 +18,9 @@ class Controller {
 
 	public function registerScripts()
 	{
-		wp_register_script('cnc-gallery-main-js', $this->plugin_url . DIRECTORY_SEPARATOR . 'assets/js/main.js', array('jquery'));
+		wp_register_script('swipebox', $this->plugin_url . 'assets/swipebox/js/jquery.swipebox.min.js', array('jquery'));
+		wp_register_style('swipebox', $this->plugin_url . 'assets/swipebox/css/swipebox.min.css', array());
+		wp_register_script('cnc-gallery-main-js', $this->plugin_url . 'assets/js/main.js', array('jquery'));
 	}
 
 	/**
@@ -27,10 +30,18 @@ class Controller {
 	 */
 	public function shortcodeGalleryAlbum($atts)
 	{
+		wp_enqueue_script('swipebox');
+		wp_enqueue_style('swipebox');
+		wp_enqueue_script('cnc-gallery-main-js');
+
 		$a = shortcode_atts( array(
 			'id' => 0,
 			), $atts );
-		$album = 'album #$' . $a['id'];
+		$id = $a['id'];
+
+		$this->view->assign('album', $this->model->getAlbumData($id, true));
+		$album = $this->view->render('cnc-album-shortcode');
+
 		return $album;
 	}
 

@@ -28,11 +28,12 @@ class Model {
 		$images_tdata = [];
 		foreach ($images_data as $image_raw) {
 			$image = [
-				'url' => $image_raw['sizes']['large'],
-				'caption' => $image_raw['caption'],
+				'href' => $image_raw['sizes']['large'],
+				'title' => $image_raw['caption'],
 			];
 			$images_tdata[] = $image;
 		}
-		return json_encode($images_tdata);
+		$transformed = htmlspecialchars(json_encode($images_tdata), ENT_QUOTES, 'UTF-8');
+		return $transformed;
 	}
 }
