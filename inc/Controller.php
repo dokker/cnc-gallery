@@ -7,9 +7,11 @@ class Controller {
 
 		// Register ACF fields
 		$this->view = new View();
+		add_action('wp_enqueue_scripts', [$this, 'registerScripts']);
 	}
 
 	public function registerScripts()
 	{
+		wp_register_script('cnc-gallery-main-js', $this->plugin_url . DIRECTORY_SEPARATOR . 'assets/js/main.js', array('jquery'));
 	}
 }
