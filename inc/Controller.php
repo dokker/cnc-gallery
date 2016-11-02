@@ -6,6 +6,7 @@ class Controller {
 		$this->plugin_url = plugin_dir_path(dirname(__FILE__));
 
 		// Register ACF fields
+		$this->acf = new ACF();
 		$this->view = new View();
 		add_action('wp_enqueue_scripts', [$this, 'registerScripts']);
 	}
