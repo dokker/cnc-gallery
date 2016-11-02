@@ -31,5 +31,8 @@ function __cnc_gallery_load_plugin()
 		['menu_icon' => 'dashicons-camera', 'has_archive' => true, 'supports' => ['title']],
 		['singular_name' => __('Album', 'cnc-gallery'), 'plural_name' => __('Albums', 'cnc-gallery')],
 		_x('albums', 'albums archive slug', 'cnc-gallery'));
+
+	// instantiate classes to register hooks
+	$controller = new cncGLY\Controller();
 }
 add_action('plugins_loaded', '__cnc_gallery_load_plugin');
