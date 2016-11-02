@@ -8,6 +8,7 @@ class Controller {
 		// Register ACF fields
 		$this->acf = new ACF();
 		$this->view = new View();
+		$this->model = new Model();
 		add_action('wp_enqueue_scripts', [$this, 'registerScripts']);
 		add_shortcode('cnc_gallery_album', [$this, 'shortcodeGalleryAlbum']);
 		add_filter( 'manage_album_posts_columns', [$this, 'wpcolumn_add_column'], 5 );
