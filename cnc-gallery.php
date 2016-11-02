@@ -27,5 +27,9 @@ function __cnc_gallery_load_plugin()
 	// load translations
 	load_plugin_textdomain( 'cnc-gallery', false, 'cnc-gallery/languages' );
 
+	$catches = new cncGLY\ContentType('album',
+		['menu_icon' => 'dashicons-camera', 'has_archive' => true, 'supports' => ['title']],
+		['singular_name' => __('Album', 'cnc-gallery'), 'plural_name' => __('Albums', 'cnc-gallery')],
+		_x('albums', 'albums archive slug', 'cnc-gallery'));
 }
 add_action('plugins_loaded', '__cnc_gallery_load_plugin');
