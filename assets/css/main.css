@@ -1,0 +1,52 @@
+.cnc-gallery-album figure {
+	position: relative;
+}
+.cnc-gallery-album figcaption {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+.cnc-gallery-album figcaption:after {
+	content: '';
+	background-color: #000000;
+	opacity: .8;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.cnc-gallery-album figcaption h3 {
+	color: #fff;
+	margin: 0;
+	position: relative;
+	z-index: 2;
+
+	opacity: 0.6;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	padding: 40px 0 20px;
+}
+
+.cnc-gallery-album .album-link {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 50;
+}
+
+.cnc-gallery-album figure:hover h3 {
+	opacity: 1;
+	padding: 30px 0 30px;
+}
+
+#swipebox-title {
+	font-size: 1.2em;
+}

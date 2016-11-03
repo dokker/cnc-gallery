@@ -21,6 +21,7 @@ class Controller {
 		wp_register_script('swipebox', $this->plugin_url . 'assets/swipebox/js/jquery.swipebox.min.js', array('jquery'));
 		wp_register_style('swipebox', $this->plugin_url . 'assets/swipebox/css/swipebox.min.css', array());
 		wp_register_script('cnc-gallery-main-js', $this->plugin_url . 'assets/js/main.js', array('jquery'));
+		wp_register_style('cnc-gallery-main', $this->plugin_url . 'assets/css/main.css', array());
 	}
 
 	/**
@@ -33,6 +34,7 @@ class Controller {
 		wp_enqueue_script('swipebox');
 		wp_enqueue_style('swipebox');
 		wp_enqueue_script('cnc-gallery-main-js');
+		wp_enqueue_style('cnc-gallery-main');
 
 		$a = shortcode_atts( array(
 			'id' => 0,
