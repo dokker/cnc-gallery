@@ -3,9 +3,15 @@
 }
 .cnc-gallery-album figcaption {
 	position: absolute;
-	bottom: 0px;
+	bottom: 10px;
+	opacity: 0;
 	text-align: center;
 	width: 100%;
+
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .cnc-gallery-album figcaption:after {
@@ -25,12 +31,7 @@
 	margin: 0;
 	position: relative;
 	z-index: 2;
-
-	opacity: 0.6;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	padding: 40px 0 20px;
+	padding: 30px 0 30px;
 }
 
 .cnc-gallery-album .album-link {
@@ -42,9 +43,9 @@
 	z-index: 50;
 }
 
-.cnc-gallery-album figure:hover h3 {
+.cnc-gallery-album figure:hover figcaption {
 	opacity: 1;
-	padding: 30px 0 30px;
+	bottom: 0;
 }
 
 #swipebox-title {
