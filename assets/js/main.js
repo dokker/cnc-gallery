@@ -13,6 +13,12 @@
 		}
 	}
 
+	/**
+	 * Alternatives:
+	 * http://photoswipe.com/
+	 * http://dimsemenov.com/plugins/magnific-popup/
+	 */
+	 
 	$('.swipebox-album').click(function(e) {
 		e.preventDefault();
 
@@ -22,7 +28,10 @@
 			return [value];
 		});
 		console.log(hidebarsdelay);
-		var options = {hideBarsDelay: hidebarsdelay};
+		var options = {
+			hideBarsDelay: hidebarsdelay,
+			removeBarsOnMobile: false
+		};
 		$.swipebox(images_data_arr, options);
 
 		$('#swipebox-slider').mousemove( function() {
